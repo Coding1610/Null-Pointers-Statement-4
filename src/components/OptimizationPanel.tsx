@@ -15,12 +15,12 @@ export const OptimizationPanel: React.FC<OptimizationPanelProps> = ({
   results 
 }) => {
   return (
-    <div className="space-y-4">
-      <div className="grid grid-cols-1 gap-3">
+    <div className="space-y-3 md:space-y-4">
+      <div className="grid grid-cols-1 gap-2 md:gap-3">
         <Button
           onClick={() => onRunOptimization('mcda')}
           disabled={isRunning}
-          className="w-full"
+          className="w-full h-10 md:h-10"
           variant="default"
         >
           <Play className="mr-2 h-4 w-4" />
@@ -31,7 +31,7 @@ export const OptimizationPanel: React.FC<OptimizationPanelProps> = ({
           onClick={() => onRunOptimization('facility')}
           disabled={isRunning}
           variant="outline"
-          className="w-full"
+          className="w-full h-10 md:h-10"
         >
           <Zap className="mr-2 h-4 w-4" />
           Network Optimization

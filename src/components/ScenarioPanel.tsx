@@ -48,11 +48,11 @@ export const ScenarioPanel: React.FC<ScenarioPanelProps> = ({ onSearch }) => {
   };
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-3 md:space-y-4">
       <div>
         <Label className="text-sm font-medium">State</Label>
         <Select onValueChange={(value) => handleInputChange('state', value)}>
-          <SelectTrigger className="mt-2">
+          <SelectTrigger className="mt-2 h-10 md:h-10">
             <SelectValue placeholder="Select State" />
           </SelectTrigger>
           <SelectContent>
@@ -69,7 +69,7 @@ export const ScenarioPanel: React.FC<ScenarioPanelProps> = ({ onSearch }) => {
           placeholder="Enter city name"
           value={filters.city}
           onChange={(e) => handleInputChange('city', e.target.value)}
-          className="mt-2"
+          className="mt-2 h-10 md:h-10"
         />
       </div>
 
@@ -80,7 +80,7 @@ export const ScenarioPanel: React.FC<ScenarioPanelProps> = ({ onSearch }) => {
           type="number"
           value={filters.budget}
           onChange={(e) => handleInputChange('budget', e.target.value)}
-          className="mt-2"
+          className="mt-2 h-10 md:h-10"
         />
       </div>
 
@@ -91,14 +91,14 @@ export const ScenarioPanel: React.FC<ScenarioPanelProps> = ({ onSearch }) => {
           type="number"
           value={filters.population}
           onChange={(e) => handleInputChange('population', e.target.value)}
-          className="mt-2"
+          className="mt-2 h-10 md:h-10"
         />
       </div>
 
       <div>
         <Label className="text-sm font-medium">Plant Type</Label>
         <Select onValueChange={(value) => handleInputChange('plantType', value)}>
-          <SelectTrigger className="mt-2">
+          <SelectTrigger className="mt-2 h-10 md:h-10">
             <SelectValue placeholder="Select Plant Type" />
           </SelectTrigger>
           <SelectContent>
@@ -111,7 +111,7 @@ export const ScenarioPanel: React.FC<ScenarioPanelProps> = ({ onSearch }) => {
 
       <Button 
         onClick={handleSearch} 
-        className="w-full mt-6"
+        className="w-full mt-4 md:mt-6 h-10 md:h-10"
         disabled={!filters.state}
       >
         <Search className="h-4 w-4 mr-2" />

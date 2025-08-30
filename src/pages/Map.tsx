@@ -112,25 +112,25 @@ const MapPage = () => {
   return (
     <div className="h-screen flex flex-col bg-background">
       {/* Header */}
-      <header className="border-b bg-card px-6 py-4 flex items-center justify-between">
-        <div className="flex items-center gap-4">
+      <header className="border-b bg-card px-4 md:px-6 py-3 md:py-4 flex items-center justify-between">
+        <div className="flex items-center gap-2 md:gap-4 min-w-0">
           <Button
             variant="ghost"
             size="sm"
             onClick={() => navigate('/')}
-            className="flex items-center gap-2"
+            className="flex items-center gap-2 flex-shrink-0"
           >
             <Home className="h-4 w-4" />
             <span className="hidden md:inline">Home</span>
           </Button>
-          <div className="h-6 w-px bg-border" />
-          <div className="flex items-center gap-2">
-            <Zap className="h-5 w-5 text-primary" />
-            <h1 className="text-lg font-semibold">Green Hydrogen Infrastructure Platform</h1>
+          <div className="h-6 w-px bg-border hidden md:block" />
+          <div className="flex items-center gap-2 min-w-0">
+            <Zap className="h-4 w-4 md:h-5 md:w-5 text-primary flex-shrink-0" />
+            <h1 className="text-sm md:text-lg font-semibold truncate">Green Hydrogen Infrastructure Platform</h1>
           </div>
         </div>
         
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 flex-shrink-0">
           <Badge variant="outline" className="hidden md:flex">
             {currentScenario.name}
           </Badge>
@@ -145,20 +145,31 @@ const MapPage = () => {
                 <Menu className="h-4 w-4" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-80">
-              <div className="space-y-6">
-                <LayerControl 
-                  layers={activeLayers}
-                  onToggleLayer={toggleLayer}
-                />
-                <ScenarioPanel 
-                  onSearch={handleSearch}
-                />
-                <OptimizationPanel 
-                  onRunOptimization={runOptimization}
-                  isRunning={optimizationRunning}
-                  results={optimizationResults}
-                />
+            <SheetContent side="right" className="w-full max-w-sm">
+              <div className="space-y-6 pt-6">
+                <div className="border-b pb-4">
+                  <h3 className="font-semibold text-lg mb-4">Layers & Controls</h3>
+                  <LayerControl 
+                    layers={activeLayers}
+                    onToggleLayer={toggleLayer}
+                  />
+                </div>
+                
+                <div className="border-b pb-4">
+                  <h3 className="font-semibold text-lg mb-4">Scenario Configuration</h3>
+                  <ScenarioPanel 
+                    onSearch={handleSearch}
+                  />
+                </div>
+                
+                <div>
+                  <h3 className="font-semibold text-lg mb-4">Optimization</h3>
+                  <OptimizationPanel 
+                    onRunOptimization={runOptimization}
+                    isRunning={optimizationRunning}
+                    results={optimizationResults}
+                  />
+                </div>
               </div>
             </SheetContent>
           </Sheet>

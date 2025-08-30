@@ -21,15 +21,16 @@ export const AuthPage: React.FC = () => {
       {/* Back Button */}
       <Button
         variant="ghost"
-        className="absolute top-6 left-6 flex items-center gap-2 text-muted-foreground hover:text-foreground"
+        className="absolute top-4 md:top-6 left-4 md:left-6 flex items-center gap-2 text-muted-foreground hover:text-foreground text-sm md:text-base"
         onClick={() => navigate('/')}
       >
         <ArrowLeft className="h-4 w-4" />
         <Home className="h-4 w-4" />
-        Back to Home
+        <span className="hidden sm:inline">Back to Home</span>
+        <span className="sm:hidden">Home</span>
       </Button>
 
-      <div className="w-full max-w-md">
+      <div className="w-full max-w-sm md:max-w-md mt-12 md:mt-0">
         {authMode === 'login' && (
           <LoginForm
             onSwitchToSignup={switchToSignup}
