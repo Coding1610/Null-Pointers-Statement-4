@@ -1,0 +1,8 @@
+[
+  { "id": 1, "name": "Site A", "latitude": 28.61, "longitude": 77.20 },
+  { "id": 2, "name": "Site B", "latitude": 28.55, "longitude": 77.25 },
+  { "id": 3, "name": "Site C", "latitude": 28.65, "longitude": 77.15 },
+  { "id": 4, "name": "Site D", "latitude": 28.70, "longitude": 77.10 },
+  { "id": 5, "name": "Site E", "latitude": 28.60, "longitude": 77.18 },
+  { "id": 6, "name": "Site F", "latitude": 28.63, "longitude": 77.22 }
+]

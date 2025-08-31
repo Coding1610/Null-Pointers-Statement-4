@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "name": "Permitted Zone A",
+    "type": "permitted",
+    "coordinates": [
+      [28.58, 77.18], [28.58, 77.22],
+      [28.62, 77.22], [28.62, 77.18]
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Permitted Zone B",
+    "type": "permitted",
+    "coordinates": [
+      [28.65, 77.12], [28.65, 77.17],
+      [28.70, 77.17], [28.70, 77.12]
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Restricted Zone",
+    "type": "restricted",
+    "coordinates": [
+      [28.54, 77.19], [28.54, 77.24],
+      [28.59, 77.24], [28.59, 77.19]
+    ]
+  }
+]

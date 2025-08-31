@@ -1,0 +1,7 @@
+[
+  { "id": 1, "name": "Solar Plant 1", "latitude": 28.59, "longitude": 77.21 },
+  { "id": 2, "name": "Solar Plant 2", "latitude": 28.67, "longitude": 77.14 },
+  { "id": 3, "name": "Wind Farm 1", "latitude": 28.52, "longitude": 77.24 },
+  { "id": 4, "name": "Hydro Plant", "latitude": 28.66, "longitude": 77.19 },
+  { "id": 5, "name": "Biomass Plant", "latitude": 28.61, "longitude": 77.26 }
+]

@@ -10,6 +10,7 @@ import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Loader2, Mail, Lock, Eye, EyeOff } from 'lucide-react'
 import { useAuth } from '@/contexts/AuthContext'
 import { useToast } from '@/hooks/use-toast'
+import { useNavigate } from 'react-router-dom'
 
 const loginSchema = z.object({
   email: z.string().email('Please enter a valid email address'),
@@ -28,6 +29,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onSwitchToSignup, onForgot
   const [isLoading, setIsLoading] = useState(false)
   const { signIn } = useAuth()
   const { toast } = useToast()
+  const navigate = useNavigate()
 
   const {
     register,
@@ -56,6 +58,8 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onSwitchToSignup, onForgot
           title: 'Success!',
           description: 'You have been logged in successfully.',
         })
+        // Redirect to home page after successful sign-in
+        navigate('/')
       }
     } catch (error) {
       setError('root', { message: 'An unexpected error occurred. Please try again.' })

@@ -3,20 +3,20 @@ import { MapContainer } from '@/components/MapContainer';
 import { LayerControl } from '@/components/LayerControl';
 import { ScenarioPanel } from '@/components/ScenarioPanel';
 import { OptimizationPanel } from '@/components/OptimizationPanel';
-import { KPIPanel } from '@/components/KPIPanel';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Badge } from '@/components/ui/badge';
-import { UserProfile } from '@/components/auth/UserProfile';
 import { 
   Menu, 
   Layers, 
   Settings, 
   BarChart3, 
   Zap,
-  Home
+  Home,
+  Plus
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import AppNew from '../../premal/AppNew';
 
 export interface LayerState {
   id: string;
@@ -109,67 +109,76 @@ const MapPage = () => {
     setSearchFilters(filters);
   };
 
-  return (
+  const [showAppNew, setShowAppNew] = useState(false);
+
+  const handleConsole = () => {
+    setShowAppNew(true);
+  }
+  
+  return showAppNew ? (
+    <AppNew />
+  ) :
+    (
+      <>
     <div className="h-screen flex flex-col bg-background">
       {/* Header */}
-      <header className="border-b bg-card px-4 md:px-6 py-3 md:py-4 flex items-center justify-between">
-        <div className="flex items-center gap-2 md:gap-4 min-w-0">
+      <header className="border-b bg-card px-6 py-4 flex items-center justify-between">
+        <div className="flex items-center gap-4">
           <Button
             variant="ghost"
             size="sm"
             onClick={() => navigate('/')}
-            className="flex items-center gap-2 flex-shrink-0"
+            className="flex items-center gap-2 bg-white hover:bg-white text-primary hover:text-black"
           >
             <Home className="h-4 w-4" />
             <span className="hidden md:inline">Home</span>
           </Button>
-          <div className="h-6 w-px bg-border hidden md:block" />
-          <div className="flex items-center gap-2 min-w-0">
-            <Zap className="h-4 w-4 md:h-5 md:w-5 text-primary flex-shrink-0" />
-            <h1 className="text-sm md:text-lg font-semibold truncate">Green Hydrogen Infrastructure Platform</h1>
+          <div className="h-6 w-px bg-border" />
+          <div className="flex items-center gap-2">
+            <Zap className="h-5 w-5 text-primary" />
+            <h1 className="text-lg font-semibold">Green Hydrogen Infrastructure Platform</h1>
           </div>
+          <div className="h-6 w-px bg-border" />
+          <Button
+            variant="default"
+            size="sm"
+            onClick={() => {
+              // TODO: Implement add power plant functionality
+              console.log('Add Green H Power Plant clicked');
+            }}
+            className="flex items-center gap-2 bg-white hover:bg-white text-primary hover:text-black"
+          >
+            <Plus className="h-4 w-4" />
+            <span className="hidden md:inline" onClick={() => handleConsole()}>Add Green H Power Plant</span>
+          </Button>
         </div>
         
-        <div className="flex items-center gap-2 flex-shrink-0">
+        <div className="flex items-center gap-2">
           <Badge variant="outline" className="hidden md:flex">
             {currentScenario.name}
           </Badge>
           
-          {/* User Profile */}
-          <UserProfile />
-          
           {/* Mobile Menu */}
           <Sheet>
             <SheetTrigger asChild>
-              <Button variant="outline" size="sm" className="md:hidden">
+              <Button variant="outline" size="sm" className="md:hidden bg-white hover:bg-white text-primary hover:text-black">
                 <Menu className="h-4 w-4" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-full max-w-sm">
-              <div className="space-y-6 pt-6">
-                <div className="border-b pb-4">
-                  <h3 className="font-semibold text-lg mb-4">Layers & Controls</h3>
-                  <LayerControl 
-                    layers={activeLayers}
-                    onToggleLayer={toggleLayer}
-                  />
-                </div>
-                
-                <div className="border-b pb-4">
-                  <h3 className="font-semibold text-lg mb-4">Scenario Configuration</h3>
-                  <ScenarioPanel 
-                    onSearch={handleSearch}
-                  />
-                </div>
-                
-                <div>
-                  <h3 className="font-semibold text-lg mb-4">Optimization</h3>
-                  <OptimizationPanel 
-                    onRunOptimization={runOptimization}
-                    isRunning={optimizationRunning}
-                    results={optimizationResults}
-                  />
-                </div>
+            <SheetContent side="right" className="w-80">
+              <div className="space-y-6">
+                <LayerControl 
+                  layers={activeLayers}
+                  onToggleLayer={toggleLayer}
+                />
+                <ScenarioPanel 
+                  onSearch={handleSearch}
+                />
+                <OptimizationPanel 
+                  onRunOptimization={runOptimization}
+                  isRunning={optimizationRunning}
+                  results={optimizationResults}
+                />
               </div>
             </SheetContent>
           </Sheet>
@@ -180,7 +189,7 @@ const MapPage = () => {
         {/* Desktop Sidebar */}
         <aside className="hidden md:flex w-80 border-r bg-card flex-col">
           <div className="p-4 border-b">
-            <div className="flex items-center gap-2 mb-4">
+            <div className="flex items-center gap-2">
               <Layers className="h-5 w-5 text-primary" />
               <h2 className="font-semibold">Layers & Controls</h2>
             </div>
@@ -203,7 +212,7 @@ const MapPage = () => {
                 />
               </div>
               
-              <div className="border-t pt-6">
+              {/* <div className="border-t pt-6">
                 <div className="flex items-center gap-2 mb-4">
                   <BarChart3 className="h-5 w-5 text-primary" />
                   <h3 className="font-semibold">Optimization</h3>
@@ -213,20 +222,13 @@ const MapPage = () => {
                   isRunning={optimizationRunning}
                   results={optimizationResults}
                 />
-              </div>
+              </div> */}
             </div>
           </div>
         </aside>
 
-        {/* Map and KPI Container */}
+        {/* Map Container */}
         <div className="flex-1 flex flex-col">
-          {/* KPI Bar */}
-          <div className="border-b bg-card">
-            <KPIPanel 
-              results={optimizationResults}
-              scenario={currentScenario}
-            />
-          </div>
           
           {/* Map */}
           <div className="flex-1 relative">
@@ -234,10 +236,14 @@ const MapPage = () => {
               searchFilters={searchFilters}
             />
           </div>
+
+
         </div>
       </div>
     </div>
-  );
+    </>
+  )
+
 };
 
 export default MapPage;

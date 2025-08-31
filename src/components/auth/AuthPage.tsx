@@ -21,7 +21,7 @@ export const AuthPage: React.FC = () => {
       {/* Back Button */}
       <Button
         variant="ghost"
-        className="absolute top-4 md:top-6 left-4 md:left-6 flex items-center gap-2 text-muted-foreground hover:text-foreground text-sm md:text-base"
+        className="absolute top-4 md:top-6 left-4 md:left-6 flex items-center gap-2 text-muted-foreground hover:text-black text-sm md:text-base hover:bg-white"
         onClick={() => navigate('/')}
       >
         <ArrowLeft className="h-4 w-4" />

@@ -78,11 +78,11 @@ export const UserProfile: React.FC = () => {
           </div>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuItem onClick={handleProfileClick}>
+        <DropdownMenuItem onClick={handleProfileClick} className='hover:bg-white hover:text-white text-primary'>
           <User className="mr-2 h-4 w-4" />
           <span>Profile</span>
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={handleSettingsClick}>
+        <DropdownMenuItem onClick={handleSettingsClick} className='hover:bg-white hover:text-white text-primary'>
           <Settings className="mr-2 h-4 w-4" />
           <span>Settings</span>
         </DropdownMenuItem>

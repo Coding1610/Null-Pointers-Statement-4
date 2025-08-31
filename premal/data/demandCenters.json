@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "name": "Industrial Hub 1",
+        "latitude": 28.63,
+        "longitude": 77.18
+    },
+    {
+        "id": 2,
+        "name": "City Distribution 1",
+        "latitude": 28.57,
+        "longitude": 77.23
+    },
+    {
+        "id": 3,
+        "name": "Transport Hub 1",
+        "latitude": 28.68,
+        "longitude": 77.16
+    },
+    {
+        "id": 4,
+        "name": "Refinery Zone",
+        "latitude": 28.55,
+        "longitude": 77.20
+    },
+    {
+        "id": 5,
+        "name": "Logistics Hub",
+        "latitude": 28.64,
+        "longitude": 77.22
+    },
+    {
+        "id": 6,
+        "name": "Export Terminal",
+        "latitude": 28.69,
+        "longitude": 77.12
+    }
+]
