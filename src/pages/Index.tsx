@@ -394,8 +394,8 @@ const Index = () => {
                 <div className="flex items-start space-x-3">
                   <MapPin className="h-5 w-5 text-green-400 mt-0.5 flex-shrink-0" />
                   <div>
-                    <p className="text-gray-300 text-sm">123 Innovation Drive</p>
-                    <p className="text-gray-300 text-sm">Tech District, CA 90210</p>
+                    <p className="text-gray-300 text-sm">Ahmedabad</p>
+                    <p className="text-gray-300 text-sm">Gujarat India</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-3">

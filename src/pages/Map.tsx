@@ -128,10 +128,9 @@ const MapPage = () => {
             variant="ghost"
             size="sm"
             onClick={() => navigate('/')}
-            className="flex items-center gap-2 bg-white hover:bg-white text-primary hover:text-black"
+            className="flex items-center gap-2 bg-white hover:bg-white text-primary hover:text-black px-4 py-2 rounded-lg font-medium transition-colors duration-200"
           >
-            <Home className="h-4 w-4" />
-            <span className="hidden md:inline">Home</span>
+            ← Back to Home
           </Button>
           <div className="h-6 w-px bg-border" />
           <div className="flex items-center gap-2">
